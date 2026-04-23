@@ -1,0 +1,75 @@
+[
+  {
+    "id": "TP-00818",
+    "name": "Operation: Umerkot 2025",
+    "status": "Active Travel Operation",
+    "dates": "14 Oct - 18 Oct 2025",
+    "location": "Umerkot & Surrounding",
+    "travelers": "4 Executives, 2 Escorts",
+    "riskStatus": "HIGH RISK ZONE",
+    "risks": [
+      {
+        "id": 1,
+        "threat": "Armed Robbery en route to Site",
+        "mitigation": "Travel during daylight only. 2-car convoy with armed B6 escort. Avoid chokepoints.",
+        "likelihood": 4,
+        "impact": 4,
+        "score": 16
+      },
+      {
+        "id": 2,
+        "threat": "Vehicle Breakdown in Red Zone",
+        "mitigation": "Mandatory pre-deployment vehicle inspection. Carry satellite phone and emergency rations.",
+        "likelihood": 3,
+        "impact": 3,
+        "score": 9
+      },
+      {
+        "id": 3,
+        "threat": "Severe Medical Emergency",
+        "mitigation": "Trauma kit in all vehicles. Verify MEDEVAC protocols via helicopter to nearest tertiary hospital.",
+        "likelihood": 2,
+        "impact": 5,
+        "score": 10
+      },
+      {
+        "id": 1774510128439,
+        "threat": "Dummy Threat",
+        "mitigation": "Dummy Mitigation",
+        "likelihood": 2,
+        "impact": 4,
+        "score": 8
+      }
+    ]
+  },
+  {
+    "name": "New Operation",
+    "status": "Draft",
+    "dates": "TBD",
+    "location": "TBD",
+    "travelers": "TBD",
+    "riskStatus": "PENDING ASSESSMENT",
+    "risks": [
+      {
+        "id": 1774512082760,
+        "threat": "Cyber Crime",
+        "factor": "Cyber Crimes",
+        "mitigation": "1. Avoid sharing passwords\n2. Remain alert",
+        "likelihood": 3,
+        "impact": 3,
+        "score": 9
+      },
+      {
+        "id": 1774512231435,
+        "threat": "Protests",
+        "factor": "Social Unrest and Protests",
+        "mitigation": "1. Avoid protest areas",
+        "likelihood": 4,
+        "impact": 3,
+        "score": 12
+      }
+    ],
+    "id": "TP-2295",
+    "score": 0
+  }
+]

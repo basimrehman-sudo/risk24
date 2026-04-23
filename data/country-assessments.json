@@ -1,0 +1,133 @@
+[
+  {
+    "id": "CA-0428",
+    "country": "Afghanistan",
+    "status": "APPROVED",
+    "riskRating": "HIGH",
+    "riskLevel": 85,
+    "createdBy": "System Admin",
+    "lastUpdated": "2026-03-26T08:30:37.254Z",
+    "summary": "Afghanistan remains a high-risk environment characterized by complex security dynamics, including risks of terrorism, kidnap, and volatile political situations. Travel is heavily restricted and requires exhaustive executive authorization and robust localized protective intelligence.",
+    "regions": [
+      "Kabul",
+      "Kandahar",
+      "Herat",
+      "Mazar-i-Sharif"
+    ],
+    "matrix": [
+      {
+        "id": 1,
+        "factor": "Travel and Transportation",
+        "impact": 4,
+        "probability": 4,
+        "score": 16,
+        "rating": "High",
+        "threatDescription": "Road travel outside major city centers presents severe risks from IEDs, illegal checkpoints, and organized criminal ambushes.",
+        "mitigation": "Strictly limited to armored B6 convoys. Helicopter transport preferred where available. Avoid routine patterns."
+      },
+      {
+        "id": 2,
+        "factor": "Medical and Health",
+        "impact": 5,
+        "probability": 3,
+        "score": 15,
+        "rating": "High",
+        "threatDescription": "Extremely limited tertiary care facilities. High risk of endemic diseases and total lack of emergency trauma response.",
+        "mitigation": "Mandatory comprehensive medical trauma kits per vehicle and dedicated airborne MEDEVAC insurance verified."
+      }
+    ]
+  },
+  {
+    "country": "PAKISTAN",
+    "status": "DRAFT",
+    "riskRating": "MEDIUM",
+    "riskLevel": 20,
+    "createdBy": "Admin",
+    "summary": "Pakistan is a medium risk country.",
+    "regions": [],
+    "matrix": [
+      {
+        "id": 1774513955254,
+        "factor": "Travel and Transportation",
+        "impact": 3,
+        "probability": 3,
+        "threatDescription": "",
+        "mitigation": "",
+        "score": 9,
+        "rating": "Medium"
+      },
+      {
+        "id": 1774513962178,
+        "factor": "Environment and Infrastructure",
+        "impact": 3,
+        "probability": 3,
+        "threatDescription": "",
+        "mitigation": "",
+        "score": 9,
+        "rating": "Medium"
+      },
+      {
+        "id": 1774513967054,
+        "factor": "Detention and Kidnap",
+        "impact": 3,
+        "probability": 3,
+        "threatDescription": "",
+        "mitigation": "",
+        "score": 9,
+        "rating": "Medium"
+      },
+      {
+        "id": 1774514012242,
+        "factor": "Political Violence and Terrorism",
+        "impact": 3,
+        "probability": 3,
+        "threatDescription": "",
+        "mitigation": "",
+        "score": 9,
+        "rating": "Medium"
+      },
+      {
+        "id": 1774514017436,
+        "factor": "Social Unrest and Protests",
+        "impact": 3,
+        "probability": 3,
+        "threatDescription": "",
+        "mitigation": "",
+        "score": 9,
+        "rating": "Medium"
+      },
+      {
+        "id": 1774514022500,
+        "factor": "Crime and Lawlessness",
+        "impact": 3,
+        "probability": 3,
+        "threatDescription": "",
+        "mitigation": "",
+        "score": 9,
+        "rating": "Medium"
+      },
+      {
+        "id": 1774514030788,
+        "factor": "Medical and Health",
+        "impact": 3,
+        "probability": 3,
+        "threatDescription": "",
+        "mitigation": "",
+        "score": 9,
+        "rating": "Medium"
+      },
+      {
+        "id": 1774514034888,
+        "factor": "Cyber Crimes",
+        "impact": 3,
+        "probability": 3,
+        "threatDescription": "",
+        "mitigation": "",
+        "score": 9,
+        "rating": "Medium"
+      }
+    ],
+    "id": "CA-9402",
+    "lastUpdated": "2026-03-26T08:36:05.900Z"
+  }
+]
