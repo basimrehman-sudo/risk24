@@ -1,3 +1,4 @@
+"use client";
 import dynamic from 'next/dynamic';
 import { Loader2 } from 'lucide-react';
 
@@ -20,18 +21,18 @@ export default function RiskMap() {
           <p className="text-slate-500 mt-1">Real-time geographical visualization of security events.</p>
         </div>
         <div className="flex gap-3">
-            <span className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-full text-xs font-bold shadow-sm">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span> Critical
-            </span>
-            <span className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-full text-xs font-bold shadow-sm">
-                <span className="w-2.5 h-2.5 rounded-full bg-orange-500"></span> High
-            </span>
-            <span className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-full text-xs font-bold shadow-sm">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Medium
-            </span>
+          <span className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-full text-xs font-bold shadow-sm">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span> Critical
+          </span>
+          <span className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-full text-xs font-bold shadow-sm">
+            <span className="w-2.5 h-2.5 rounded-full bg-orange-500"></span> High
+          </span>
+          <span className="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 text-slate-700 rounded-full text-xs font-bold shadow-sm">
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Medium
+          </span>
         </div>
       </div>
-      
+
       <div className="flex-1 bg-white p-2 rounded-xl shadow-sm border border-slate-200 relative z-0 overflow-hidden">
         <MapWithNoSSR />
       </div>

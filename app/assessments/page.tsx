@@ -8,33 +8,52 @@ export default function Assessments() {
   const router = useRouter();
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [creating, setCreating] = useState(false);
 
   useEffect(() => {
     fetch('/api/country-assessments')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error(`Server error: ${res.status}`);
+        return res.json();
+      })
       .then(d => {
-        setData(d);
+        setData(Array.isArray(d) ? d : []);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Assessments fetch error:', err);
+        setError('Failed to load assessments. Please try again.');
         setLoading(false);
       });
   }, []);
 
   const createNewAssessment = async () => {
-    const res = await fetch('/api/country-assessments', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        country: 'New Country',
-        status: 'DRAFT',
-        riskRating: 'LOW',
-        riskLevel: 0,
-        createdBy: 'Admin',
-        summary: 'Assessment summary pending...',
-        regions: [],
-        matrix: []
-      })
-    });
-    const newAssessment = await res.json();
-    router.push(`/assessments/${newAssessment.id}`);
+    setCreating(true);
+    try {
+      const res = await fetch('/api/country-assessments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          country: 'New Country',
+          status: 'DRAFT',
+          riskRating: 'LOW',
+          riskLevel: 0,
+          createdBy: 'Admin',
+          summary: 'Assessment summary pending...',
+          regions: [],
+          matrix: []
+        })
+      });
+      if (!res.ok) throw new Error(`Server error: ${res.status}`);
+      const newAssessment = await res.json();
+      router.push(`/assessments/${newAssessment.id}`);
+    } catch (err) {
+      console.error('Create assessment error:', err);
+      alert('Failed to create assessment. Check your API route.');
+    } finally {
+      setCreating(false);
+    }
   };
 
   const getRatingColor = (rating: string) => {
@@ -46,7 +65,23 @@ export default function Assessments() {
     return 'bg-slate-300 text-slate-700';
   };
 
-  if (loading) return <div className="p-12 text-center text-slate-500 font-bold">Loading Assessments...</div>;
+  if (loading) return (
+    <div className="p-12 text-center text-slate-500 font-bold animate-pulse">
+      Loading Assessments...
+    </div>
+  );
+
+  if (error) return (
+    <div className="p-12 text-center">
+      <p className="text-red-500 font-bold mb-4">{error}</p>
+      <button
+        onClick={() => window.location.reload()}
+        className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium"
+      >
+        Retry
+      </button>
+    </div>
+  );
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
@@ -55,8 +90,12 @@ export default function Assessments() {
           <h1 className="text-3xl font-bold text-slate-800 tracking-tight">Country Assessments</h1>
           <p className="text-slate-500 mt-1">Manage and review intelligence risk ratings globally.</p>
         </div>
-        <button onClick={createNewAssessment} className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-5 rounded-lg transition-colors flex items-center gap-2 shadow-sm shrink-0">
-          <Plus size={18} /> Create Assessment
+        <button
+          onClick={createNewAssessment}
+          disabled={creating}
+          className="bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium py-2.5 px-5 rounded-lg transition-colors flex items-center gap-2 shadow-sm shrink-0"
+        >
+          <Plus size={18} /> {creating ? 'Creating...' : 'Create Assessment'}
         </button>
       </div>
 
@@ -88,14 +127,19 @@ export default function Assessments() {
                   <td className="px-6 py-4 text-slate-600 text-sm">{row.createdBy}</td>
                   <td className="px-6 py-4">
                     <span className={`px-2.5 py-1 rounded-full text-xs font-bold tracking-wide uppercase ${
-                      row.status === 'APPROVED' ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' : 'bg-slate-100 text-slate-600 border border-slate-200'
+                      row.status === 'APPROVED'
+                        ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
+                        : 'bg-slate-100 text-slate-600 border border-slate-200'
                     }`}>
                       {row.status}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-right">
                     <div className="flex justify-end gap-2">
-                      <Link href={`/assessments/${row.id}`} className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors flex items-center gap-1 text-sm font-bold">
+                      <Link
+                        href={`/assessments/${row.id}`}
+                        className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors flex items-center gap-1 text-sm font-bold"
+                      >
                         <Edit3 size={16} /> Edit
                       </Link>
                     </div>

@@ -1,3 +1,4 @@
+"use client";
 import { AlertTriangle } from 'lucide-react';
 
 export default function Ticker() {
@@ -6,7 +7,7 @@ export default function Ticker() {
       <div className="flex items-center gap-2 font-black tracking-widest uppercase text-xs shrink-0 z-10 bg-red-600 pr-6 border-r border-red-500/50">
         <AlertTriangle size={16} className="animate-pulse text-yellow-300" /> ONGOING CRITICAL
       </div>
-      <div className="flex-1 overflow-hidden relative flex items-center ml-4 mask-edges">
+      <div className="flex-1 overflow-hidden relative flex items-center ml-4">
         <div className="animate-marquee whitespace-nowrap flex items-center gap-16 font-semibold text-sm tracking-wide">
           <span>⚠️ FIERCE ARMED CONFRONTATION IN QILLA ABDULLAH CLAIMS 3 LIVES — AVOID IMMEDIATE AREA</span>
           <span>⚠️ IED EXPLOSION TARGETING RAILWAY TRACK PREVENTED IN SIBI — SECURITY HEIGHTENED</span>

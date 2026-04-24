@@ -1,5 +1,4 @@
-import './globals.css';
-import './globals.css';
+import './globals.css';  // ← removed duplicate
 import Sidebar from '@/components/Sidebar';
 import TopNav from '@/components/TopNav';
 import Ticker from '@/components/Ticker';
