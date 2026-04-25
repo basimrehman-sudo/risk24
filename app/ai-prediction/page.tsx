@@ -1,3 +1,4 @@
+"use client";
 import { Construction } from 'lucide-react';
 
 export default function PlaceholderPage() {
